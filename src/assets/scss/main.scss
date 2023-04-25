@@ -1,0 +1,95 @@
+@use 'default';
+@use 'properties' as prop;
+@use 'sass:color';
+
+
+
+
+%btn {
+    font-size: 2.5rem;
+    padding: 5px 15px;
+    text-align: center;
+    font-family: main-font, serif;
+
+    &:hover {
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    &:disabled {
+        cursor: default;
+    }
+}
+
+
+.btn-default {
+    @extend %btn;
+    background: prop.$color-button;
+    color: black;
+    border: 2px solid prop.$color-button;
+
+    &:not(:disabled, :focus):hover {
+        background: prop.$color-button;
+        color: white;
+    }
+
+    &:disabled {
+        background: prop.$color-button-disabled;
+        border: 2px solid prop.$color-button-disabled;
+    }
+
+    &:not(:disabled):focus {
+        outline: none;
+    }
+}
+
+.field-default {
+
+    font-size: 2rem;
+    padding: 5px 15px;
+
+    border: 1px solid prop.$color-field;
+    font-family: main-font, serif;
+
+    &:not(:focus):hover {
+        outline: 1px solid prop.$color-field-hover;
+    }
+
+    &:focus {
+        outline: 2px solid prop.$color-field-hover;
+
+    }
+
+}
+
+$indentions: (
+    m:'margin',
+    p:'padding'
+);
+
+$type-identions: (
+    "":"",
+    "l":'-left',
+    'r':'-right',
+    't':'-top',
+    'b':'-bottom'
+);
+
+
+@for $number from 1 through 3 {
+
+    .fs-#{$number} {
+        font-size: #{$number}rem;
+    }
+
+    @each $indention-name,
+    $indention in $indentions {
+
+        @each $type-name,
+        $type in $type-identions {
+            .#{$indention-name}#{$type-name}-#{$number} {
+                #{$indention}#{$type}: #{$number}rem;
+            }
+        }
+    }
+}

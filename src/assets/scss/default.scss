@@ -1,0 +1,31 @@
+@font-face {
+  font-family: main-font;
+  src: url("@/assets/fonts/Roboto.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: main-font;
+  src: url("@/assets/fonts/Roboto.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: main-font;
+  src: url("@/assets/fonts/Roboto.ttf") format("truetype");
+  font-weight: normal;
+
+  font-style: normal;
+}
+
+html, body {
+  box-sizing: border-box;
+  font-size: 7px;
+  background: #F0E68C;
+}
+
+*, *::after, *::before {
+  box-sizing: inherit;
+}
